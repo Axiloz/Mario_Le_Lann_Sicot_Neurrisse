@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 25
+    defaultConfig {
+        applicationId "fr.enseeiht.superjumpingsumokart"
+        minSdkVersion 19
+        multiDexEnabled true
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
+
+    }
+    buildTypes {
+        debug {
+            proguardFile 'proguard-rules.pro'
+        }
+        release {
+            proguardFiles 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.testng:testng:6.9.6'
+    implementation 'junit:junit:4.12'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation project(':aRBaseLib')
+    implementation 'com.android.support:appcompat-v7:25.1.1'
+    implementation 'com.android.support:design:25.1.1'
+    implementation 'com.android.support:support-v4:25.1.1'
+    implementation 'com.parrot:arsdk:3.11.0'
+    testImplementation 'junit:junit:4.12'
+}
